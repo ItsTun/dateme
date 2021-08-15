@@ -1,0 +1,11 @@
+= form_with(model: man) do |form|
+  - if man.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(man.errors.count, "error")
+        prohibited this man from being saved:
+      %ul
+        - man.errors.each do |error|
+          %li= error.full_message
+  .actions
+    = form.submit

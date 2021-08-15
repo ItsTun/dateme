@@ -33,6 +33,7 @@ gem 'devise'
 gem 'twilio-ruby', '~> 4.0.0'
 gem 'phonelib'
 gem 'dotenv-rails', :groups => [:development, :test] # optional
+gem "haml-rails", "~> 2.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

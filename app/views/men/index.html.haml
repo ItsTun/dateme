@@ -1,0 +1,14 @@
+%p#notice= notice
+%h1 Men
+%table
+  %thead
+    %tr
+      %th{:colspan => "3"}
+  %tbody
+    - @men.each do |man|
+      %tr
+        %td= link_to 'Show', man
+        %td= link_to 'Edit', edit_man_path(man)
+        %td= link_to 'Destroy', man, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Man', new_man_path
