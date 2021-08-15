@@ -29,6 +29,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem "image_processing", ">= 1.2"
+gem 'devise'
+gem 'twilio-ruby', '~> 4.0.0'
+gem 'phonelib'
+gem 'dotenv-rails', :groups => [:development, :test] # optional
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
