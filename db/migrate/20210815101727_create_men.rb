@@ -4,7 +4,8 @@ class CreateMen < ActiveRecord::Migration[6.1]
       t.string :name
       t.integer :age
       t.string :height
-      t.integer :duration
+      t.integer :two_hr_price
+      t.integer :three_hr_price
       t.integer :user_id
       t.string :ph_no
       t.integer :price
