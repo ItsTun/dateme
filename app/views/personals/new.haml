@@ -1,0 +1,50 @@
+.container
+  .row
+    .offset-xl-3.col-xl-6.offset-lg-2.col-lg-8.col-md-12.col-sm-12.col-12.mb-3
+      / contact-section-title
+      .text-center
+        %p.lead
+          Please fill the following form to join the community
+    .offset-xl-3.col-xl-6.offset-lg-3.col-lg-6.col-md-12.col-sm-12.col-12
+      .contact-form
+        = simple_form_for(@lady, url: ladies_path, method: :post, html: { class: "campaign-form"} )do |f|
+          .row
+            = f.error_notification
+            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+              = f.input :name, label: 'Name', placeholder: 'Name', label: false
+            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+              = f.input :age, label: 'Age', placeholder: 'Age', label: false
+            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+              = f.input :height, label: 'Height', placeholder: 'Height', label: false
+            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+              = f.input :gender, label: 'Name', placeholder: 'Name', label: false
+              .form-group
+                %select.wide.mb20{:name => "selectinterest"}
+                  %option{:value => "Vendor Purpose"} Gender
+                  %option{:value => "Couple"} Female
+            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+              .form-group.service-form-group
+                %label.control-label.sr-only{:for => "price"}
+                %input#phone.form-control{:name => "price", :placeholder => "Price", :required => "", :type => "text"}/
+            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+              .form-group.service-form-group
+                %label.control-label.sr-only{:for => "phone"}
+                %input#phone.form-control{:name => "phone", :placeholder => "Phone", :required => "", :type => "text"}/
+            / select
+            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+              .form-group
+                %select.wide.mb20{:name => "selectinterest"}
+                  %option{:value => "Vendor Purpose"} Coffe Date
+                  %option{:value => "Couple"} Couple
+                  %option{:value => "Pricing"} Pricing
+                  %option{:value => "Vendor"} Vendor
+                  %option{:value => "Advertise with us"} Advertise with us
+            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+              / textarea
+              .form-group
+                %label.control-label.sr-only{:for => "description"}
+                %textarea#message.form-control{:name => "description", :placeholder => "Describe your personality", :rows => "3"}
+            / button
+            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+              %button.btn.btn-default{:name => "singlebutton", :type => "submit"} submit
+        / /.form

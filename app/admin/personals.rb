@@ -1,4 +1,4 @@
-ActiveAdmin.register Lady do
+ActiveAdmin.register Personal do
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -10,7 +10,7 @@ ActiveAdmin.register Lady do
   # or
   #
   permit_params do
-    permitted = [:name, :age, :height, :two_hr_price, :three_hr_price, :user_id, :ph_no, :price, :description, images: [], interest_ids: []]
+    permitted = [:name, :age, :height, :two_hr_price, :three_hr_price, :user_id, :gender_id, :ph_no, :price, :description, images: [], interest_ids: []]
     permitted
   end
   form do |f|
@@ -21,6 +21,7 @@ ActiveAdmin.register Lady do
       f.input :two_hr_price
       f.input :three_hr_price
       f.input :user, collection: User.all.map{ |user|  [user.email, user.id] }
+      f.input :gender, collection: Gender.all.map{ |gender|  [gender.title, gender.id] }
       f.input :ph_no
       f.input :description
       f.input :interests, as: :check_boxes, :collection => Interest.all.map{ |interest|  [interest.title, interest.id] }
@@ -39,6 +40,7 @@ ActiveAdmin.register Lady do
       row :two_hr_price
       row :three_hr_price
       row :user
+      row :gender
       row :ph_no
       row :description
       model.interests.each_with_index do |interest, i|

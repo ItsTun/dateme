@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_18_142355) do
+ActiveRecord::Schema.define(version: 2021_09_08_160949) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -66,38 +66,23 @@ ActiveRecord::Schema.define(version: 2021_08_18_142355) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "genders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "interests", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "interests_ladies", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "lady_id"
+  create_table "interests_personals", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "personal_id"
     t.bigint "interest_id"
-    t.index ["interest_id"], name: "index_interests_ladies_on_interest_id"
-    t.index ["lady_id"], name: "index_interests_ladies_on_lady_id"
-  end
-
-  create_table "interests_men", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "man_id"
-    t.bigint "interest_id"
-    t.index ["interest_id"], name: "index_interests_men_on_interest_id"
-    t.index ["man_id"], name: "index_interests_men_on_man_id"
-  end
-
-  create_table "ladies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
-    t.integer "age"
-    t.string "height"
-    t.integer "two_hr_price"
-    t.integer "three_hr_price"
-    t.integer "user_id"
-    t.string "ph_no"
-    t.integer "price"
-    t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.index ["interest_id"], name: "index_interests_personals_on_interest_id"
+    t.index ["personal_id"], name: "index_interests_personals_on_personal_id"
   end
 
   create_table "men", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -112,6 +97,21 @@ ActiveRecord::Schema.define(version: 2021_08_18_142355) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "personals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "height"
+    t.integer "two_hr_price"
+    t.integer "three_hr_price"
+    t.integer "user_id"
+    t.string "ph_no"
+    t.integer "price"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "gender_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

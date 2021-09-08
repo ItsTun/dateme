@@ -35,6 +35,8 @@ gem 'phonelib'
 gem 'dotenv-rails', :groups => [:development, :test] # optional
 gem "haml-rails", "~> 2.0"
 gem 'activeadmin'
+gem 'simple_form'
+gem 'country_select'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

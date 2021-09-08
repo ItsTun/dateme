@@ -6,9 +6,18 @@
   .peo-img{
     height: 230px;
   }
+  .lady-card{
+    padding: 0.3rem;
+  }
+  .lady-img{
+    height: 250px;
+  }
 }
 @media only screen and (min-width: 992px){
   .mobile{
     display: none;
+  }
+  .lady-img{
+    height: 500px;
   }
 }
