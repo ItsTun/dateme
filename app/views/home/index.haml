@@ -120,60 +120,82 @@
         %h4.text-center Join Us For More Content
       .row
       .col-xl-3.col-lg-3.col-md-6.col-sm-6.col-6.pr-xl-0.pr-xs-0
-        = link_to personal_path(@top_personals[0]) do
-          .location-card
-            .location-card-img.location-card-img1
-              %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[0].images.first)}"}/
-            .card-img-overlay.text-center
-              .location-img-content
-                %h2.location-card-title
-                  = @top_personals[0].name
-      .col-xl-3.col-lg-3.col-md-6.col-sm-6.col-6
         .row
           .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0.pb-xl-0.mb-3
-            = link_to personal_path(@top_personals[1]) do
+            = link_to personal_path(@top_personals[0]) do
               .location-card
                 .location-card-img.location-card-img2
+                  %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[0].images.first)}"}/
+                .card-img-overlay.text-center
+                  .location-img-content
+                    %h2.location-card-title
+                      = @top_personals[0].name
+          .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0.pb-xl-0
+            = link_to personal_path(@top_personals[1]) do
+              .location-card
+                .location-card-img.location-card-img3
                   %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[1].images.first)}"}/
                 .card-img-overlay.text-center
                   .location-img-content
                     %h2.location-card-title
                       = @top_personals[1].name
-          .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0.pb-xl-0
+      .col-xl-3.col-lg-3.col-md-6.col-sm-6.col-6
+        .row
+          .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0.pb-xl-0.mb-3
             = link_to personal_path(@top_personals[2]) do
               .location-card
-                .location-card-img.location-card-img3
+                .location-card-img.location-card-img2
                   %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[2].images.first)}"}/
                 .card-img-overlay.text-center
                   .location-img-content
                     %h2.location-card-title
                       = @top_personals[2].name
-      .col-xl-3.col-lg-3.col-md-6.col-sm-6.col-6
-        .row
-          .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0.mb-3
+          .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0.pb-xl-0
             = link_to personal_path(@top_personals[3]) do
               .location-card
-                .location-card-img.location-card-img4
+                .location-card-img.location-card-img3
                   %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[3].images.first)}"}/
                 .card-img-overlay.text-center
                   .location-img-content
                     %h2.location-card-title
                       = @top_personals[3].name
-          .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0
+      .col-xl-3.col-lg-3.col-md-6.col-sm-6.col-6
+        .row
+          .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0.mb-3
             = link_to personal_path(@top_personals[4]) do
               .location-card
-                .location-card-img.location-card-img5
+                .location-card-img.location-card-img4
                   %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[4].images.first)}"}/
                 .card-img-overlay.text-center
                   .location-img-content
                     %h2.location-card-title
                       = @top_personals[4].name
+          .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0
+            = link_to personal_path(@top_personals[5]) do
+              .location-card
+                .location-card-img.location-card-img5
+                  %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[5].images.first)}"}/
+                .card-img-overlay.text-center
+                  .location-img-content
+                    %h2.location-card-title
+                      = @top_personals[5].name
       .col-xl-3.col-lg-3.col-md-6.col-sm-6.col-6.pr-xl-0
-        = link_to personal_path(@top_personals[5]) do
-          .location-card
-            .location-card-img.location-card-img6
-              %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[5].images.first)}"}/
-            .card-img-overlay.text-center
-              .location-img-content
-                %h2.location-card-title
-                  = @top_personals[5].name
+        .row
+          .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0.mb-3
+            = link_to personal_path(@top_personals[6]) do
+              .location-card
+                .location-card-img.location-card-img4
+                  %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[6].images.first)}"}/
+                .card-img-overlay.text-center
+                  .location-img-content
+                    %h2.location-card-title
+                      = @top_personals[6].name
+          .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0
+            = link_to personal_path(@top_personals[7]) do
+              .location-card
+                .location-card-img.location-card-img5
+                  %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[7].images.first)}"}/
+                .card-img-overlay.text-center
+                  .location-img-content
+                    %h2.location-card-title
+                      = @top_personals[7].name

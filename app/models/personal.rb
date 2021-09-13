@@ -13,8 +13,4 @@ class Personal < ApplicationRecord
   validates :price, presence: true, numericality: { only_integer: true }
   validates :ph_no, presence: true
   validates :description, presence: true
-
-
-  scope :ladies, -> { where(gender_id: 1)}
-  scope :men, -> { where(gender_id: 2)}
 end

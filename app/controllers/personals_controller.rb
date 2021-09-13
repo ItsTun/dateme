@@ -5,9 +5,9 @@ class PersonalsController < ApplicationController
   # GET /ladies or /ladies.json
   def index
     if params[:men]
-      @personals = Personal::men
+      @personals = Personal.where(gender_id: (Gender.find_by_title('Men').id))
     else
-      @personals = Personal::ladies
+      @personals = Personal.where(gender_id: (Gender.find_by_title('Lady').id))
     end
   end
 
