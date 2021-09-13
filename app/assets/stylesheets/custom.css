@@ -18,6 +18,9 @@
   .mobile{
     display: none;
   }
+  .peo-img{
+    height: 280px;
+  }
   .lady-img{
     height: 500px;
   }
