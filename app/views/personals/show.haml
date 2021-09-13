@@ -19,11 +19,11 @@
       .vendor-meta.bg-white.border.m-0
         .vendor-meta-item.vendor-meta-item-bordered
           %span.vendor-price
-            = @personal.price
+            = number_to_currency(@personal.price, :unit => "$")
           %span.vendor-text Per Meet Up
         .vendor-meta-item.vendor-meta-item-bordered
           %span.vendor-guest
-            = @personal.height
+            = @personal.height + " cm"
           %span.vendor-text Height
         .vendor-meta-item.vendor-meta-item-bordered
           %span.vendor-guest
