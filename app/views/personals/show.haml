@@ -2,7 +2,7 @@
   .owl-carousel.owl-theme.owl-second.owl-loaded.owl-drag
     - @personal.images.each do |img|
       .item
-        %img{:alt => "", :src => "#{url_for(img)}"}/
+        %img.pre-show-img{:alt => "", :src => "#{url_for(img)}"}/
 .list-single-second
   .container
     %div

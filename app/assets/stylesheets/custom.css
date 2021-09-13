@@ -12,7 +12,9 @@
   .lady-img{
     height: 250px;
   }
- 
+  .pre-show-img{
+    height: 480px;
+  }
 }
 @media only screen and (min-width: 992px){
   .mobile{
@@ -20,6 +22,9 @@
   }
   .peo-img{
     height: 280px;
+  }
+  .pre-show-img{
+    height: 480px;
   }
   .lady-img{
     height: 500px;
