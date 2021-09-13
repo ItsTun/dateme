@@ -215,7 +215,7 @@ body .ui-tooltip { border-width: 2px; }
 ----------------------------------*/
 .ui-widget { font-family: 'Rubik', sans-serif; font-size: 1em; }
 .ui-widget .ui-widget { font-size: 1em; }
-.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: 'Rubik', sans-serif; sans-serif; font-size: 1em; }
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: 'Rubik', sans-serif; font-size: 1em; }
 .ui-widget.ui-widget-content { border: 1px solid #bfc4c5; }
 .ui-widget-content { border: 1px solid #bfc4c5; background: #ffffff; color: #252328; }
 .ui-widget-content a { color: #252328; }
