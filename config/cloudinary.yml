@@ -1,0 +1,11 @@
+development: 
+  cloud_name: "ourdana"
+  api_key: "732898555739761"
+  api_secret: "anRZDebhkqTO6nkhSAHaDNrTcxw"
+  secure: true
+
+production:
+  cloud_name: "ourdana"
+  api_key: "732898555739761"
+  api_secret: "anRZDebhkqTO6nkhSAHaDNrTcxw"
+  secure:true
