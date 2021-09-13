@@ -11,6 +11,7 @@
   }
   .lady-img{
     height: 250px;
+    width: 100%;
   }
   .pre-show-img{
     height: 480px;
@@ -28,6 +29,7 @@
   }
   .lady-img{
     height: 500px;
+    width: 100%;
   }
   .female-header{
     padding-top: 10px;
