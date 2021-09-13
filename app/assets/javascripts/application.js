@@ -16,3 +16,18 @@
 //= require fastclick
 //= require custom-script
 //= return return-to-top
+//= require filepond.min
+//= require filepond.jquery
+//= require filepond-plugin-image-preview.min
+
+
+ // Turn input element into a pond
+ $('.my-pond').filepond();
+
+ // Set allowMultiple property to true
+ $('.my-pond').filepond('allowMultiple', true);
+
+ // Listen for addfile event
+ $('.my-pond').on('FilePond:addfile', function(e) {
+     console.log('file added event', e);
+ });

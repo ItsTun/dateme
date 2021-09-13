@@ -1,36 +1,31 @@
 .container
   .row
-    .col-6
-      %h3 Female Personalities
-    .col-3
-    .col-3
-      .form-group
-        %select.wide{:name => "selectvendor"}
-          %option{:value => "Vendor Purpose"} Vendor Purpose
-          %option{:value => "Couple"} Couple
-          %option{:value => "Pricing"} Pricing
-          %option{:value => "Vendor"} Vendor
-          %option{:value => "Advertise with us"} Advertise with us
+    .col-md-8.col-sm-6.col-6.pt-3
+      - if params[:men]
+        %h3 Men Personals
+      - else
+        %h3 Female Personals
+    .col-md-4.col-sm-6.col-6
+      - if params[:men]
+        .form-group
+          %select.wide.mb-0{:name => "selectvendor"}
+            %option{:value => personals_path(ladies: true)} Lowest to Highest
+            %option
+              = link_to 'Highest to Lowest', personals_path(men: true, sort: 1)
+      - else
+        .form-group
+          %select.wide.mb-0{:name => "selectvendor"}
+            %option{:value => "0"}
+              = link_to 'Lowest to Highest', personals_path(female: true, sort: 0)
+            %option{:value => "1"}
+              = link_to 'Highest to Lowest', personals_path(female: true, sort: 1)
   %hr
   .row
-    .col-xl-4.col-lg-4.col-md-6.col-sm-6.col-6.pb-2.lady-card
-      .location-card
-        .location-card-img.location-card-img5
-          %img.lady-img.img-fluid.rounded{:alt => "", :src => "./images/location-img-6.jpg"}/
-        .card-img-overlay.text-center
-          .location-img-content
-      %p.text-center Chicago
-    .col-xl-4.col-lg-4.col-md-6.col-sm-6.col-6.pb-2.lady-card
-      .location-card
-        .location-card-img.location-card-img5
-          %img.lady-img.img-fluid.rounded{:alt => "", :src => "./images/location-img-6.jpg"}/
-        .card-img-overlay.text-center
-          .location-img-content
-      %p.text-center Chicago
-    .col-xl-4.col-lg-4.col-md-6.col-sm-6.col-6.pb-2.lady-card
-      .location-card
-        .location-card-img.location-card-img5.pb-2
-          %img.lady-img.img-fluid.rounded{:alt => "", :src => "./images/location-img-6.jpg"}/
-        .card-img-overlay.text-center
-          .location-img-content
-      %p.text-center Chicago
+    - @personals.each do |personal|
+      .col-xl-4.col-lg-4.col-md-6.col-sm-6.col-6.pb-2.lady-card
+        .location-card
+          %img.lady-img.img-fluid.rounded{:alt => "", :src => "#{url_for(personal.images.first)}"}/
+          .card-img-overlay.text-center
+            .location-img-content
+        %p.text-center
+          = personal.name

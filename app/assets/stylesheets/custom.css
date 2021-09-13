@@ -12,6 +12,7 @@
   .lady-img{
     height: 250px;
   }
+ 
 }
 @media only screen and (min-width: 992px){
   .mobile{
@@ -19,5 +20,8 @@
   }
   .lady-img{
     height: 500px;
+  }
+  .female-header{
+    padding-top: 10px;
   }
 }

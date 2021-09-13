@@ -16,5 +16,7 @@
  *= require owl.carousel
  *= require style
  *= require custom
+ *= require filepond
+ *= require filepond-preview
  *= require_self
  */

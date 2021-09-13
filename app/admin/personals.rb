@@ -20,6 +20,7 @@ ActiveAdmin.register Personal do
       f.input :height
       f.input :two_hr_price
       f.input :three_hr_price
+      f.input :price
       f.input :user, collection: User.all.map{ |user|  [user.email, user.id] }
       f.input :gender, collection: Gender.all.map{ |gender|  [gender.title, gender.id] }
       f.input :ph_no

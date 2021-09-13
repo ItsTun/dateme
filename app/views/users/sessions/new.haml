@@ -1,0 +1,48 @@
+
+.container
+  .row
+    .col-md-2
+    .col-md-8
+      .st-tab
+        %ul#Mytabs.nav.nav-tabs.nav-justified{:role => "tablist"}
+          %li.nav-item
+            %a#tab-1.nav-link.active{"aria-controls" => "tab-1", "aria-selected" => "true", "data-toggle" => "tab", :href => "#tab1", :role => "tab"} Register
+          %li.nav-item
+            %a#tab-2.nav-link{"aria-controls" => "tab-2", "aria-selected" => "false", "data-toggle" => "tab", :href => "#tab2", :role => "tab"} Login
+        #myTabContent.tab-content
+          #tab1.tab-pane.fade.show.active{"aria-labelledby" => "tab-1", :role => "tabpanel"}
+            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+              / vendor title
+              .vendor-form-title
+                %h3.mb-2 Business Register
+                %p Join Weddingsto get your business listed or to claim your listing for FREE!
+                = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                  = render "devise/shared/error_messages", resource: resource
+                  .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+                    = f.email_field :email, label: 'Email', placeholder: 'Email', label: false, autofocus: true, autocomplete: "email", class: 'form-control'
+                  .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+                    - if @minimum_password_length
+                      %em
+                        (#{@minimum_password_length} characters minimum)
+                    %br/
+                    = f.password_field :password, autocomplete: "new-password", placeholder: 'Password',  class: 'form-control'
+                  .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.mt-4
+                    = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: 'Confirm Password',  class: 'form-control'
+                  .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.mt-4
+                    = f.submit "Sign up",  class: 'form-control btn btn-default'
+          #tab2.tab-pane.fade{"aria-labelledby" => "tab-2", :role => "tabpanel"}
+            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+              .vendor-form-title
+                / vendor-title
+                %h3.mb-2 Welcome Back Vendor
+                %p Join Weddings to get your business listed or to claim your listing for FREE!
+                = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+                  = f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email"}
+                  = f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password" }
+                  = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+                  = f.submit "Sign in",  class: 'form-control btn btn-default'

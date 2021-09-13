@@ -5,38 +5,8 @@
         / search-block
         %div
           .text-center
-            %h4.text-white May Be
-            %h6.text-white Find, Book, Meet
-          / /.search-block
-          / search-form
-          -# .search-form
-          -#   %form.form-row
-          -#     .col-12
-          -#       / select
-          -#       %select.wide
-          -#         %option{:value => "Venue Type"} Vendor Type
-          -#         %option{:value => "Venue"} Venue
-          -#     / button
-          -#     .col-xl-2.col-lg-4.col-md-4.col-sm-12.col-12
-          -#       %button.btn.btn-default.btn-block{:type => "submit"} Search
-          / /.search-form
-  -# .feature-section
-  -#   .container
-  -#     .row
-  -#       .col-xl-3.col-lg-3.col-md-6.col-sm-12.col-12
-  -#         .feature-left
-  -#           .feature-icon
-  -#             %i.fas.fa-clipboard-list
-  -#           .feature-content
-  -#             %h3.text-white.mb-1 13000+
-  -#             %p.text-white Vendor Listing
-  -#       .col-xl-3.col-lg-3.col-md-6.col-sm-12.col-12
-  -#         .feature-left
-  -#           .feature-icon
-  -#             %i.fas.fa-smile
-  -#           .feature-content
-  -#             %h3.text-white.mb-1 12000+
-  -#             %p.text-white Happy Users
+            %h4.text-white Date Me
+            %h6.text-white Find your perfect companion date.
 .container
   .row.mb-2.mt-3
     .offset-xl-2.col-xl-8.offset-lg-2.col-lg-8.col-md-12.col-sm-12.col-12
@@ -45,51 +15,76 @@
   .desktop
     .venue-thumbnail-carousel
       .owl-carousel.owl-theme.owl-venue-thumb
-        .item
-          .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0
-            .location-card
-              .location-card-img.location-card-img5
-                %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-6.jpg"}/
-              .card-img-overlay.text-center
-                .location-img-content
-            %p.text-center Victoris
-        .item
-          .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0
-            .location-card
-              .location-card-img.location-card-img5
-                %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-6.jpg"}/
-              .card-img-overlay.text-center
-                .location-img-content
-            %p.text-center Paris
+        - @top_personals.each do |personal|
+          .item
+            = link_to personal_path(personal) do
+              .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0
+                .location-card
+                  %img.img-fluid.rounded{:alt => "", :src => "#{url_for(personal.images.first)}"}/
+                  .card-img-overlay.text-center
+                    .location-img-content
+                %p.text-center
+                  = personal.name
   .mobile
     .venue-thumbnail-carousel
       .owl-carousel.owl-theme.owl-venue-thumb
-        .item
-          .row
-            .col-6
-              .location-card
-                .location-card-img.location-card-img5
-                  %img.img-fluid.rounded.peo-img{:alt => "", :src => "./images/location-img-6.jpg"}/
-                .card-img-overlay.text-center
-                  .location-img-content
-              %p.text-center Victoris
-            .col-6
-              .location-card
-                .location-card-img.location-card-img5
-                  %img.img-fluid.rounded.peo-img{:alt => "", :src => "./images/location-img-6.jpg"}/
-                .card-img-overlay.text-center
-                  .location-img-content
-              %p.text-center Victoris
-              
-        .item
-          .col-xl-12.col-lg-12.col-md-12.col-sm-6.col-6.pr-xl-0
-            .location-card
-              .location-card-img.location-card-img5
-                %img.img-fluid.rounded.peo-img{:alt => "", :src => "./images/location-img-6.jpg"}/
-              .card-img-overlay.text-center
-                .location-img-content
-            %p.text-center Paris
-  
+        - @top_personals[0..1].each_with_index do |personal, index|
+          .item
+            .row
+              .col-6
+                = link_to personal_path(personal) do
+                  .location-card
+                    %img.img-fluid.rounded.peo-img{:alt => "", :src => "#{url_for(personal.images.first)}"}/
+                    .card-img-overlay.text-center
+                      .location-img-content
+                  %p.text-center
+                    = personal.name
+              .col-6
+                .location-card
+                  = link_to personal_path(personal) do
+                    %img.img-fluid.rounded.peo-img{:alt => "", :src =>"#{url_for(personal.images.first)}"}/
+                    .card-img-overlay.text-center
+                      .location-img-content
+                  %p.text-center
+                    = personal.name
+        - @top_personals[2..3].each_with_index do |personal, index|
+          .item
+            .row
+              .col-6
+                = link_to personal_path(personal) do
+                  .location-card
+                    %img.img-fluid.rounded.peo-img{:alt => "", :src => "#{url_for(personal.images.first)}"}/
+                    .card-img-overlay.text-center
+                      .location-img-content
+                  %p.text-center
+                    = personal.name
+              .col-6
+                = link_to personal_path(personal) do
+                  .location-card
+                    %img.img-fluid.rounded.peo-img{:alt => "", :src =>"#{url_for(personal.images.first)}"}/
+                    .card-img-overlay.text-center
+                      .location-img-content
+                  %p.text-center
+                    = personal.name
+        - @top_personals[4..5].each_with_index do |personal, index|
+          .item
+            .row
+              .col-6
+                = link_to personal_path(personal) do
+                  .location-card
+                    %img.img-fluid.rounded.peo-img{:alt => "", :src => "#{url_for(personal.images.first)}"}/
+                    .card-img-overlay.text-center
+                      .location-img-content
+                  %p.text-center
+                    = personal.name
+              .col-6
+                = link_to personal_path(personal) do
+                  .location-card
+                    %img.img-fluid.rounded.peo-img{:alt => "", :src =>"#{url_for(personal.images.first)}"}/
+                    .card-img-overlay.text-center
+                      .location-img-content
+                  %p.text-center
+                    = personal.name
 .process-section
   .container
     .row
@@ -125,319 +120,63 @@
   .container.mt-4.mb-4
     .row
       .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
-        %h4.text-center Join Us On Facebook For More Content
+        %h4.text-center Join Us For More Content
       .row
       .col-xl-3.col-lg-3.col-md-6.col-sm-6.col-6.pr-xl-0.pr-xs-0
-        .location-card
-          .location-card-img.location-card-img1
-            %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-1.jpg"}/
-          .card-img-overlay.text-center
-            .location-img-content
-              %h2.location-card-title New York
-              %p.location-vendor-count 20 Vendors
+        = link_to personal_path(@top_personals[0]) do
+          .location-card
+            .location-card-img.location-card-img1
+              %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[0].images.first)}"}/
+            .card-img-overlay.text-center
+              .location-img-content
+                %h2.location-card-title
+                  = @top_personals[0].name
       .col-xl-3.col-lg-3.col-md-6.col-sm-6.col-6
         .row
           .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0.pb-xl-0.mb-3
-            .location-card
-              .location-card-img.location-card-img2
-                %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-3.jpg"}/
-              .card-img-overlay.text-center
-                .location-img-content
-                  %h2.location-card-title Barcelona
-                  %p.location-vendor-count 12 Vendors
+            = link_to personal_path(@top_personals[1]) do
+              .location-card
+                .location-card-img.location-card-img2
+                  %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[1].images.first)}"}/
+                .card-img-overlay.text-center
+                  .location-img-content
+                    %h2.location-card-title
+                      = @top_personals[1].name
           .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0.pb-xl-0
-            .location-card
-              .location-card-img.location-card-img3
-                %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-4.jpg"}/
-              .card-img-overlay.text-center
-                .location-img-content
-                  %h2.location-card-title Paris
-                  %p.location-vendor-count 14 Vendors
+            = link_to personal_path(@top_personals[2]) do
+              .location-card
+                .location-card-img.location-card-img3
+                  %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[2].images.first)}"}/
+                .card-img-overlay.text-center
+                  .location-img-content
+                    %h2.location-card-title
+                      = @top_personals[2].name
       .col-xl-3.col-lg-3.col-md-6.col-sm-6.col-6
         .row
           .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0.mb-3
-            .location-card
-              .location-card-img.location-card-img4
-                %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-5.jpg"}/
-              .card-img-overlay.text-center
-                .location-img-content
-                  %h2.location-card-title Tokyo
-                  %p.location-vendor-count 09 Vendors
+            = link_to personal_path(@top_personals[3]) do
+              .location-card
+                .location-card-img.location-card-img4
+                  %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[3].images.first)}"}/
+                .card-img-overlay.text-center
+                  .location-img-content
+                    %h2.location-card-title
+                      = @top_personals[3].name
           .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.pr-xl-0
-            .location-card
-              .location-card-img.location-card-img5
-                %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-6.jpg"}/
-              .card-img-overlay.text-center
-                .location-img-content
-                  %h2.location-card-title Chicago
-                  %p.location-vendor-count 10 Vendors
+            = link_to personal_path(@top_personals[4]) do
+              .location-card
+                .location-card-img.location-card-img5
+                  %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[4].images.first)}"}/
+                .card-img-overlay.text-center
+                  .location-img-content
+                    %h2.location-card-title
+                      = @top_personals[4].name
       .col-xl-3.col-lg-3.col-md-6.col-sm-6.col-6.pr-xl-0
-        .location-card
-          .location-card-img.location-card-img6
-            %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-2.jpg"}/
-          .card-img-overlay.text-center
-            .location-img-content
-              %h2.location-card-title Reykjavik
-              %p.location-vendor-count 5 Vendors
-    -# .mobile
-    -#   .row
-    -#     .col-6
-    -#       .location-card
-    -#         .location-card-img.location-card-img1
-    -#           %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-1.jpg"}/
-    -#         .card-img-overlay.text-center
-    -#           .location-img-content
-    -#             %h2.location-card-title New York
-    -#             %p.location-vendor-count 20 Vendors
-    -#     .col-6
-    -#       .col-12.pr-0.pl-0
-    -#         .location-card
-    -#           .location-card-img.location-card-img2
-    -#             %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-3.jpg"}/
-    -#           .card-img-overlay.text-center
-    -#             .location-img-content
-    -#               %h2.location-card-title Barcelona
-    -#               %p.location-vendor-count 12 Vendors
-    -#       .col-12.pr-0.pl-0.pt-2
-    -#         .location-card
-    -#           .location-card-img.location-card-img3
-    -#             %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-4.jpg"}/
-    -#           .card-img-overlay.text-center
-    -#             .location-img-content
-    -#               %h2.location-card-title Paris
-    -#               %p.location-vendor-count 14 Vendors
-    -#   .row
-    -#     .col-6
-    -#       .col-12.pr-0.pl-0
-    -#         .location-card
-    -#           .location-card-img.location-card-img4
-    -#             %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-5.jpg"}/
-    -#           .card-img-overlay.text-center
-    -#             .location-img-content
-    -#               %h2.location-card-title Tokyo
-    -#               %p.location-vendor-count 09 Vendors
-    -#       .col-12.pr-0.pl-0
-    -#         .location-card
-    -#           .location-card-img.location-card-img5
-    -#             %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-6.jpg"}/
-    -#           .card-img-overlay.text-center
-    -#             .location-img-content
-    -#               %h2.location-card-title Chicago
-    -#               %p.location-vendor-count 10 Vendors
-    -#     .col-6
-    -#       .location-card
-    -#         .location-card-img.location-card-img6
-    -#           %img.img-fluid.rounded{:alt => "", :src => "./images/location-img-2.jpg"}/
-    -#         .card-img-overlay.text-center
-    -#           .location-img-content
-    -#             %h2.location-card-title Reykjavik
-    -#             %p.location-vendor-count 5 Vendors
-.space-small
-  .container
-    .row
-      .offset-xl-2.col-xl-8.offset-lg-2.col-lg-8.col-md-12.col-sm-12.col-12
-        .section-title.text-center
-          / section title start
-          %h2.mb10 Real Weddings
-          %p Real inspiration from the real wedding couple. Get ideas for grooms and brides.
-        / /.section title start
-    .row
-      .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
-        .real-wedding-block
-          / real wedding block
-          .real-wedding-img.zoomimg
-            / real wedding img
-            %a{:href => "#"}
-              %img.img-fluid{:alt => "Wedding Vendor & Supplier Directory HTML Template ", :src => "images/real-wedding-img-1.jpg"}/
-          / /.real wedding img
-          .real-wedding-content
-            / real wedding content
-            %h3.real-wedding-title
-              %a.title{:href => "#"} Vanessa & Ryan
-            .real-wedding-meta
-              %span.real-wedding-date 07 May, 2018
-              %span.real-wedding-place.pl-3
-                %i.fas.fa-map-marker-alt.pr-1>
-                Surat
-          / /.real wedding img
-        / /.real wedding block
-      .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
-        .real-wedding-block
-          / real wedding block
-          .real-wedding-img.zoomimg
-            / real wedding img
-            %a{:href => "#"}
-              %img.img-fluid{:alt => "Wedding Vendor & Supplier Directory HTML Template ", :src => "images/real-wedding-img-4.jpg"}/
-          / /.real wedding img
-          .real-wedding-content
-            / real wedding content
-            %h3.real-wedding-title
-              %a.title{:href => "#"} Rahul & Pooja
-            .real-wedding-meta
-              %span.real-wedding-date 10 May, 2018
-              %span.real-wedding-place.pl-3
-                %i.fas.fa-map-marker-alt.pr-1>
-                Ahmedabad
-          / /.real wedding img
-        / /.real wedding block
-      .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
-        .real-wedding-block
-          / real wedding block
-          .real-wedding-img.zoomimg
-            / real wedding img
-            %a{:href => "#"}
-              %img.img-fluid{:alt => "Wedding Vendor & Supplier Directory HTML Template ", :src => "images/real-wedding-img-2.jpg"}/
-          / /.real wedding img
-          .real-wedding-content
-            / real wedding content
-            %h3.real-wedding-title
-              %a.title{:href => "#"} Shreena & Dhanesh
-            .real-wedding-meta
-              %span.real-wedding-date 12 May, 2018
-              %span.real-wedding-place.pl-3
-                %i.fas.fa-map-marker-alt.pr-1>
-                Pune
-          / /.real wedding img
-        / /.real wedding block
-    .row
-      .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.text-center
-        %a.btn.btn-default.btn-lg{:href => "#"} See more Real Weddings
-/ /.real-wedding-section
-/ Testimonial-section
-.space-small.bg-white
-  .container
-    .row
-      .offset-xl-2.col-xl-8.offset-lg-2.col-lg-8.col-md-12.col-sm-12.col-12
-        .section-title.text-center
-          / section title start
-          %h2.mb10 Real Testimonials
-          %p Find out what about real couple have to say about related.
-        / /.section title start
-    .row
-      .col-xl-6.col-lg-6.col-md-6.col-sm-6.col-12
-        .testimonial-block.testimonial-second
-          / testimonial block
-          .testimonial-content
-            %h3.testimonial-name Barbara J. Gonzalez
-            %p.testimonial-text “Cras non maximus veli m eleifend nibh eget erat gravida, ac fermentum turpis iaculis liquam hendrerit ornare dui, rutrum luctus ipsum aliquam no onec eget mauris nec orci porta blandit. Vestibulum ut dignissim sem. Cras non maximus velit.”
-          .testimonial-meta
-            .testimonial-pic.circle-lg
-              %img.rounded-circle{:alt => "", :src => "images/testimonial-1.jpg"}/
-            .testimonial-meta-text
-              %h5.mb0 Photgrapher Vendor
-              %p.testimonial-small-text.mb0 Ahmedabad
-            .rating-star
-              %i.fa.fa-star.rated
-              %i.fa.fa-star.rated
-              %i.fa.fa-star.rated
-              %i.fa.fa-star.rated
-              %i.fa.fa-star.rated
-          / /.testimonial block
-      .col-xl-6.col-lg-6.col-md-6.col-sm-6.col-12
-        .testimonial-block.testimonial-second
-          / testimonial block
-          .testimonial-content
-            %h3.testimonial-name Timothy B. Anderson
-            %p.testimonial-text Donec a est sed augue vehicula faucibus. Nullam elementum pretium turpis vel dapibus. Donec malesuada neque eget neque ornare efficitur. Nullam at nisi sit amet erat tempus fermentum. Phasellus nibh purus, malesuada a tellus sed, eleifend vulputate lectus.
-          .testimonial-meta
-            .testimonial-pic.circle-lg
-              %img.rounded-circle{:alt => "", :src => "images/testimonial-2.jpg"}/
-            .testimonial-meta-text
-              %h5.mb0 Photgrapher Vendor
-              %p.testimonial-small-text.mb0 Ahmedabad
-            .rating-star
-              %i.fa.fa-star.rated
-              %i.fa.fa-star.rated
-              %i.fa.fa-star.rated
-              %i.fa.fa-star.rated
-              %i.fa.fa-star.rated
-          / /.testimonial block
-/ /.Testimonial-section
-/ blog-post-section
-.space-small
-  .container
-    .row
-      .offset-xl-2.col-xl-8.offset-lg-2.col-lg-8.col-md-12.col-sm-12.col-12
-        .section-title.text-center
-          / section title start
-          %h2.mb10 Wedding Tips and News
-          %p The ultimate wedding guide and tips for wedding couples.
-        / /.section title start
-    .row
-      .col-xl-4.col-lg-4.col-md-6.col-sm-6.col-12
-        .post-block
-          / post vertical block
-          .post-img.zoomimg
-            %a{:href => "#"}
-              %img.img-fluid{:alt => "", :src => "images/post-img-1.jpg"}/
-          .post-content
-            %h3.post-heading
-              %a.post-title{:href => "#"} Happy Wedding Couple Walk Together
-            %p.meta
-              %span.meta-posted-by
-                By
-                %a{:href => "#"} Admin
-              %span.meta-date 08 May, 2018
-            %p Donec porttitor molestie lacus, ac suscipit ipsum scelerisque nec. Duis urna odio, ultricies egestadio.
-      .col-xl-4.col-lg-4.col-md-6.col-sm-6.col-12
-        .post-block
-          / post vertical block
-          .post-img.zoomimg
-            %a{:href => "#"}
-              %img.img-fluid{:alt => "", :src => "images/post-img-2.jpg"}/
-          .post-content
-            %h3.post-heading
-              %a.post-title{:href => "#"} 4 Things Every Bride To Be Needs To Hear
-            %p.meta
-              %span.meta-posted-by
-                By
-                %a{:href => "#"} Admin
-              %span.meta-date 08 May, 2018
-            %p Duis urna odio, ultricies pellentesque fermentum egesporttitor molestie lacus, ac suscipit .
-      .col-xl-4.col-lg-4.col-md-6.col-sm-6.col-12
-        .post-block
-          / post vertical block
-          .post-img.zoomimg
-            %a{:href => "#"}
-              %img.img-fluid{:alt => "", :src => "images/post-img-4.jpg"}/
-          .post-content
-            %h2.post-heading
-              %a.post-title{:href => "#"} Top 5 Wedding Friendly Cities in India
-            %p.meta
-              %span.meta-posted-by
-                By
-                %a{:href => "#"} Admin
-              %span.meta-date 07 May, 2018
-            %p Mauris est quam, fermentum in aliquimentum vel urna ullam acilisis sit amet placerat quis, semper ac eros.
-    .row
-      .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.text-center
-        %a.btn.btn-default.btn-lg{:href => "#"} View All Articles
-/ /.blog-post-section
-.space-small.bg-default.text-white
-  .container
-    .row
-      .col-xl-9.col-lg-9.col-md-9.col-sm-12.col-12
-        %h2.text-white.mb10 Submit your Listing Right Now!
-        %p Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor.
-      .col-xl-3.col-lg-3.col-md-3.col-sm-12.col-12.text-center.mt-3
-        %a.btn.btn-primary.btn-lg{:href => "#"} Submit Now
-/ social-media-section
-.social-media-block
-  .container
-    .row
-      .col-xl-7.col-lg-7.col-md-6.col-sm-6.col-12
-        %h3.text-white.mb0.mt10 Would you like to connect with us
-      .col-xl-5.col-lg-5.col-md-6.col-sm-6.col-12.text-right
-        .social-icons
-          %a.icon-square{:href => "#"}
-            %i.fab.fa-facebook-f
-          %a.icon-square{:href => "#"}
-            %i.fab.fa-twitter
-          %a.icon-square{:href => "#"}
-            %i.fab.fa-google-plus-g
-          %a.icon-square{:href => "#"}
-            %i.fab.fa-instagram
-          %a.icon-square{:href => "#"}
-            %i.fab.fa-youtube
-/ /.social-media-section
-/ footer-section
+        = link_to personal_path(@top_personals[5]) do
+          .location-card
+            .location-card-img.location-card-img6
+              %img.img-fluid.rounded{:alt => "", :src => "#{url_for(@top_personals[5].images.first)}"}/
+            .card-img-overlay.text-center
+              .location-img-content
+                %h2.location-card-title
+                  = @top_personals[5].name

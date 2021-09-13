@@ -4,16 +4,15 @@
       .col-xl-4.col-lg-4.col-md-4.col-sm-6.col-12
         / footer-widget
         .footer-widget
-          %a{:href => "#"}
-            %img.mb20{:alt => "", :src => "images/footer-logo.png"}/
-          %p.mb10 Vestibulum ante elit, convallis quis nibh in, vulputate rhoncus massa. In hac habitasse platea dictumst.
-          %p In hac habitasse platea dictumst simple dummy content here.
+          %h5
+            = link_to 'Date Me', root_path, class: 'text-default'
+          %p.mb10 MayBe is the website to find a companion ship for coffee dates, movie dates.
       / /.footer-widget
       / footer-widget
       .col-xl-3.col-lg-3.col-md-4.col-sm-6.col-12
         .footer-widget
           %h3.widget-title
-            Contact Address
+            Contact Us
           %p.d-flex
             %i.fas.fa-fw.fa-map-marker-alt.text-default.pr-3.pt-1>
             4998 Elk Creek Road Canton,
@@ -24,7 +23,7 @@
             +0-800-1234-123
           %p.mb0.d-flex
             %i.fas.fa-fw.fa-envelope.text-default.pr-3.pt-1>
-            info@realwed.com
+            info@maybe.com
       / /.footer-widget
       / footer-widget
       .col-xl-2.col-lg-2.col-md-4.col-sm-6.col-12
@@ -33,34 +32,38 @@
             About Company
           %ul.listnone
             %li
-              %a{:href => "#"} About us
+              = link_to 'Ladies', personals_path(ladies: true)
             %li
-              %a{:href => "#"} Contact us
+              = link_to 'Men', personals_path(men: true)
             %li
-              %a{:href => "#"} Faq
-            %li
-              %a{:href => "#"} Pricing Plan
-            %li
-              %a{:href => "#"} Meet The Team
+              = link_to 'Join us on Facebook'
       / /.footer-widget
       / /.footer-widget
       .col-xl-3.col-lg-3.col-md-12.col-sm-6.col-12
         .footer-widget.newsletter-block
           %h3.widget-title
-            Subscribe to newsletter
-          %form
-            .form-group
-              %label.sr-only{:for => "email"}
-              %input#email.form-control{"aria-describedby" => "email", :placeholder => "Enter Email Address", :type => "email"}/
-          %a.btn.btn-default{:href => "#"} Subscribe
+            All Rights Reserved.
+          %ul.listnone
+            %li Date Me
       / /.footer-widget
   / tiny-footer-section
-  .tiny-footer
-  .container
-    .row
-      .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12.text-right
-        %p © 2018 RealWed. All Rights Reserved.
-  / /.tiny-footer-section
   %a#return-to-top{:href => "javascript:"}
-  %i.fa.fa-angle-up
+    %i.fa.fa-angle-up
   :javascript
+    jQuery(document).ready(function($){
+      "use strict";
+            // ===== Scroll to Top ==== 
+    $(window).scroll(function() {
+        if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+            $('#return-to-top').fadeIn(200);    // Fade in the arrow
+        } else {
+            $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+        }
+    });
+    $('#return-to-top').click(function() {      // When arrow is clicked
+        $('body,html').animate({
+            scrollTop : 0                       // Scroll to top of body
+        }, 500);
+    });
+
+    });

@@ -3,15 +3,18 @@ class Personal < ApplicationRecord
   accepts_nested_attributes_for :interests
   has_many_attached :images
   belongs_to :user
-  belongs_to :gender_id
+  belongs_to :gender
 
   validates :user_id, presence: true, numericality: { only_integer: true }
   validates :gender_id, presence: true, numericality: { only_integer: true }
   validates :name, presence: true
   validates :age, presence: true, numericality: { only_integer: true }
   validates :height, presence: true, numericality: { only_integer: true }
-  validates :two_hr_price, presence: true, numericality: { only_integer: true }
-  validates :three_hr_price, presence: true, numericality: { only_integer: true }
+  validates :price, presence: true, numericality: { only_integer: true }
   validates :ph_no, presence: true
+  validates :description, presence: true
 
+
+  scope :ladies, -> { where(gender_id: 1)}
+  scope :men, -> { where(gender_id: 2)}
 end

@@ -1,9 +1,14 @@
 class PersonalsController < ApplicationController
   before_action :set_personal, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[edit create update destroy]
 
   # GET /ladies or /ladies.json
   def index
-    @personals = Personal.all
+    if params[:men]
+      @personals = Personal::men
+    else
+      @personals = Personal::ladies
+    end
   end
 
   # GET /ladies/1 or /ladies/1.json
@@ -21,15 +26,13 @@ class PersonalsController < ApplicationController
 
   # POST /ladies or /ladies.json
   def create
-    @personal = Personal.new(personal)
-
+    @personal = Personal.new(personal.merge(user_id: current_user.id))
+    byebug
     respond_to do |format|
       if @personal.save
-        format.html { redirect_to @personal, notice: "personal was successfully created." }
-        format.json { render :show, status: :created, location: @personal }
+        format.html { redirect_to @personal, notice: "Personal was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @personal.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,11 +62,11 @@ class PersonalsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_personal
-      @personal = personal.find(params[:id])
+      @personal = Personal.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def personal
-      params.fetch(:personal, {})
+      params.require(:personal).permit(:name, :age, :height, :price, :ph_no, :user_id, :gender_id, :description, interest_ids: [], images: [])
     end
 end
