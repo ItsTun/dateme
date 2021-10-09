@@ -272,7 +272,7 @@ a img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 .btn-secondary-link:hover { color: #2aa62c; text-decoration: none; border-color: #2aa62c; }
 .btn-wishlist { background-color: #fff; border-radius: 4px; padding: 4px 6px; border: 1px solid #ebebeb; color: #ff4d4d; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
 .btn-wishlist:hover { background-color: #ff4d4d; color: #fff; border: 1px solid #ff4d4d; }
-.btn-default-wishlist { background-color: #fff; border-radius: 4px; padding: 12px 10px; border: 1px solid #ebebeb; color: #ff4d4d; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+.btn-default-wishlist { background-color: #fff; border-radius: 4px; padding: 12px 10px; border: 1px solid #ebebeb; color: #ff4d4d; font-size: 20px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
 .btn-default-wishlist:hover { background-color: #ff4d4d; color: #fff !important; border: 1px solid #ff4d4d; }
 
 /*-------------------------------------------------------------------
