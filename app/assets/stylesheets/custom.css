@@ -16,6 +16,21 @@
   .pre-show-img{
     height: 480px;
   }
+
+  .active {
+    position: absolute;
+    top: 7%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
 }
 @media only screen and (min-width: 992px){
   .mobile{
@@ -34,4 +49,19 @@
   .female-header{
     padding-top: 10px;
   }
+
+.active {
+  position: absolute;
+  top: 4%;
+  left: 94%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
 }
