@@ -7,7 +7,7 @@
           Please fill the following form to join the community
     .offset-xl-3.col-xl-6.offset-lg-3.col-lg-6.col-md-12.col-sm-12.col-12
       .contact-form
-        = simple_form_for(@personal, url: personals_path, method: :post, html: { class: "campaign-form"} )do |f|
+        = simple_form_for(@personal, url: personals_path, method: :post, html: { class: "upload_form"} )do |f|
           .row
             = f.error_notification
             .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12

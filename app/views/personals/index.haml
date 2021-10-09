@@ -1,10 +1,23 @@
 .container
   .row
-    .col-md-8.col-sm-6.col-6.pt-3
+    .col-md-4.col-sm-12.col-12.pt-3
       - if params[:men]
         %h3 Men Personals
       - else
         %h3 Female Personals
+    .col-md-4.col-sm-6.col-6
+      - if params[:men]
+        .form-group
+          %select.wide.mb-0{:name => "selectvendor"}
+            %option{:value => personals_path(ladies: true)} Yangon
+            %option{:value => personals_path(ladies: true)} Mandalay
+      - else
+        .form-group
+          %select.wide.mb-0{:name => "selectvendor"}
+            %option{:value => "0"}
+              = link_to 'Yangon', personals_path(female: true, sort: 0)
+            %option{:value => "1"}
+              = link_to 'Mandalay', personals_path(female: true, sort: 1)
     .col-md-4.col-sm-6.col-6
       - if params[:men]
         .form-group

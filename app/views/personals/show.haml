@@ -13,14 +13,14 @@
               = @personal.name
         .col-xl-4.col-lg-4.col-md-4.col-sm-12.col-12
           .vendor-head.text-xl-right
-            %a.btn-default-wishlist{:href => "#"}
+            %a.btn-default-wishlist{:href => "viber://add?number=#{@personal.ph_no}"}
               %i.fa.fa-heart
               %span.pl-1 Send a message
       .vendor-meta.bg-white.border.m-0
         .vendor-meta-item.vendor-meta-item-bordered
           %span.vendor-price
             = number_to_currency(@personal.price, :unit => "$")
-          %span.vendor-text Per Meet Up
+          %span.vendor-text 2 Hour Meet Up
         .vendor-meta-item.vendor-meta-item-bordered
           %span.vendor-guest
             = @personal.height + " cm"

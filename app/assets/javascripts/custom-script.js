@@ -2,6 +2,49 @@ jQuery(document).ready(function($) {
     'use strict';
 
     /* menu js **/
+    $('.my-pond').filepond();
+
+    // Turn input element into a pond with configuration options
+    $('.my-pond').filepond({
+        allowMultiple: true,
+    });
+
+    // Set allowMultiple property to true
+    $('.my-pond').filepond('allowMultiple', false);
+
+    // Listen for addfile event
+    $('.my-pond').on('FilePond:addfile', function (e) {
+        console.log('file added event', e);
+    });
+
+    $(".upload_form").submit(function (e) {
+        e.preventDefault();
+        var fd = new FormData(this);
+        // append files array into the form data
+        debugger
+        var pondFiles = $('.my-pond').filepond('getFiles');
+        for (var i = 0; i < pondFiles.length; i++) {
+            fd.append('file[]', pondFiles[i].file);
+        }
+
+        $.ajax({
+                url: '/personals',
+                type: 'POST',
+                data: fd,
+                dataType: 'JSON',
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    //    todo the logic
+                    // remove the files from filepond, etc
+                },
+                error: function (data) {
+                    //    todo the logic
+                }
+            }
+        );
+    });
 
     if ($(".dropdown-menu a.dropdown-toggle").length) {
 

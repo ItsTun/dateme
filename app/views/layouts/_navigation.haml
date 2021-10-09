@@ -20,6 +20,18 @@
             %li.mr-3.mt-3
               %h4
                 = link_to 'JOIN US', new_personal_path
+            - if user_signed_in? && current_user.personals.present?
+              %li.mr-3.mt-3
+                %h4
+                  = link_to 'PROFILE', personal_path(current_user.personals.first.id)
+            - if !user_signed_in?
+              %li.mr-3.mt-3
+                %h4
+                  = link_to 'SIGN IN/SIGN UP',new_user_session_path
+            - else
+              %li.mr-3.mt-3
+                %h4
+                  = link_to 'SIGN OUT', destroy_user_session_path,  :method => :delete 
             %li.mr-3.mt-3
               %h4 ABOUT US
             %li.mt-3

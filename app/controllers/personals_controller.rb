@@ -1,6 +1,6 @@
 class PersonalsController < ApplicationController
   before_action :set_personal, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: %i[edit create update destroy]
+  before_action :authenticate_user!, only: %i[new edit create update destroy]
 
   # GET /ladies or /ladies.json
   def index
@@ -27,7 +27,6 @@ class PersonalsController < ApplicationController
   # POST /ladies or /ladies.json
   def create
     @personal = Personal.new(personal.merge(user_id: current_user.id))
-    byebug
     respond_to do |format|
       if @personal.save
         format.html { redirect_to @personal, notice: "Personal was successfully created." }
