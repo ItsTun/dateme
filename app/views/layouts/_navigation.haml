@@ -31,7 +31,7 @@
             - else
               %li.mr-3.mt-3
                 %h4
-                  = link_to 'SIGN OUT', destroy_user_session_path,  :method => :delete 
+                  = link_to 'SIGN OUT', destroy_user_session_path(), method: :delete
             %li.mr-3.mt-3
               %h4 ABOUT US
             %li.mt-3
