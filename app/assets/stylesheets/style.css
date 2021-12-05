@@ -579,8 +579,7 @@ img.grayscale:hover { filter: grayscale(0); opacity: 1; transition-property: fil
 .hero-section-second { background: url(../images/hero-image-2.jpg) no-repeat center; background-size: cover; min-height: 595px; }
 .hero-section-second .search-head-title { font-size: 48px; line-height: 50px; }
 .hero-section-second .search-form { background: rgba(0, 0, 0, 0.5); padding: 6px; border-radius: 4px; }
-.hero-section-caption { padding-bottom: 150px; padding-top: 160px; }
-.vendor-feature-block.feature-block { border: 1px solid #ededed; padding: 29px 18px; text-align: center; border-radius: 4px; margin-bottom: 10px; }
+.hero-section-caption { padding-bottom: 150px; padding-top: 160px; } .vendor-feature-block.feature-block { border: 1px solid #ededed; padding: 29px 18px; text-align: center; border-radius: 4px; margin-bottom: 10px; }
 .vendor-feature-block .feature-icon { font-size: 52px; color: #808080; margin-bottom: 20px; }
 .vendor-feature-block .feature-content { }
 .vendor-feature-block .feature-title { font-size: 15px; margin-bottom: 0px; }
@@ -604,7 +603,7 @@ img.grayscale:hover { filter: grayscale(0); opacity: 1; transition-property: fil
 /* ==========================================================================
    index-3
    ========================================================================== */
-.hero-section-third { background: url(../images/hero-image-3.jpg) no-repeat center; background-size: cover; padding-top: 300px; }
+.hero-section-third { background: url(../images/datememe.jpg) no-repeat center; background-size: cover; padding-top: 400px; }
 .hero-section-third .search-head-title { font-size: 52px; line-height: 68px; font-weight: 400; }
 .feature-section { border-top: 1px solid; border-color: rgba(246, 245, 247, .2); margin-top: 180px }
 .hero-section-third .feature-left { min-height: initial; border-right: 1px solid rgba(246, 245, 247, .2); padding: 22px; }
@@ -615,7 +614,7 @@ img.grayscale:hover { filter: grayscale(0); opacity: 1; transition-property: fil
 .vendor-categories-text { }
 .vendor-categories-title { color: #fff; float: left; display: inline-block; }
 .vendor-categories-numbers { float: right; height: 27px; width: 27px; background-color: #ff4d4d; border-radius: 100%; line-height: 2; padding: 2px; display: inline-block; text-align: center; font-size: 12px; color: #fff; font-weight: 500; }
-.process-section { background: url(../images/howitwork-img.jpg) no-repeat center; background-size: cover; padding-top: 140px; padding-bottom: 140px; }
+.process-section { background: url(../images/dateme.jpg) no-repeat center; background-size: cover; padding-top: 140px; padding-bottom: 140px; }
 .icon-circle { border: 2px solid #fff; text-align: center; padding: 50px; border-radius: 100%; position: relative; }
 .circle-xxl { height: 154px; width: 154px; }
 .circle-xl { height: 100px; width: 100px; }
