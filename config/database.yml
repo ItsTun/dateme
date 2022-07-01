@@ -9,7 +9,7 @@ default: &default
 development:
   <<: *default
   username: root
-  password: root
+  password: 
   socket: /tmp/mysql.sock
   database: <%= Rails.application.class.module_parent_name.downcase %>_development
 
